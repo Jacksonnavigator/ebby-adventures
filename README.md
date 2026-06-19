@@ -26,6 +26,16 @@ npm run build      # production build → dist/
 npm run preview    # preview production build
 ```
 
+## Render Static Hosting
+
+This project is ready for Render static hosting with `render.yaml`.
+
+Dashboard settings if you create the service manually:
+- Service type: Static Site
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Rewrite rule: `/*` to `/index.html`
+
 ## Deploy
 
 **Netlify (easiest):**
