@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+﻿import { useParams, Link } from "react-router-dom";
 import { DESTINATIONS, ITINERARIES } from "../data/siteData";
 import PlanForm from "../components/PlanForm";
 import "./DetailPage.css";
@@ -23,8 +23,8 @@ export default function DestinationDetailPage() {
         </div>
         <div className="container detail-hero-content">
           <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">›</span>
-            <Link to="/destinations">Destinations</Link> <span className="bc-sep">›</span>
+            <Link to="/">Home</Link> <span className="bc-sep">/</span>
+            <Link to="/destinations">Destinations</Link> <span className="bc-sep">/</span>
             <span>{dest.short}</span>
           </div>
           <div className="eyebrow eyebrow-light">{dest.region}</div>
@@ -62,7 +62,7 @@ export default function DestinationDetailPage() {
             </div>
 
             <div className="detail-block detail-besttime">
-              <div className="besttime-icon">🗓</div>
+              <div className="besttime-icon">Best</div>
               <div>
                 <h3>Best time to visit</h3>
                 <p>{dest.bestTime}</p>
@@ -79,10 +79,10 @@ export default function DestinationDetailPage() {
                         <img src={it.thumb} alt={it.title} />
                       </div>
                       <div className="related-card-body">
-                        <div className="related-region">{it.region} · {it.days} days</div>
+                        <div className="related-region">{it.region} / {it.days} days</div>
                         <h4>{it.title}</h4>
-                        <p>{it.desc.slice(0, 90)}…</p>
-                        <span className="related-cta">View itinerary →</span>
+                        <p>{it.desc.slice(0, 90)}...</p>
+                        <span className="related-cta">View itinerary</span>
                       </div>
                     </Link>
                   ))}
@@ -100,7 +100,7 @@ export default function DestinationDetailPage() {
             </div>
             <div className="sidebar-contact">
               <p>Prefer to chat?</p>
-              <a href="https://wa.me/255627619124" target="_blank" rel="noreferrer" className="btn-whatsapp">💬 WhatsApp us</a>
+              <a href="https://wa.me/255627619124" target="_blank" rel="noreferrer" className="btn-whatsapp">WhatsApp us</a>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default function DestinationDetailPage() {
               <div className="eyebrow">Explore more</div>
               <h2>Other <em>destinations</em>.</h2>
             </div>
-            <Link to="/destinations" className="view-all">All destinations →</Link>
+            <Link to="/destinations" className="view-all">All destinations</Link>
           </div>
           <div className="more-grid">
             {DESTINATIONS.filter(d => d.slug !== slug).slice(0, 3).map(d => (
@@ -126,7 +126,7 @@ export default function DestinationDetailPage() {
                 <div className="more-card-body">
                   <div className="more-card-region">{d.region}</div>
                   <h3>{d.short}</h3>
-                  <span>Explore →</span>
+                  <span>Explore</span>
                 </div>
               </Link>
             ))}

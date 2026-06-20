@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { COMPANY, DESTINATIONS, EXPERIENCES, ITINERARIES } from "../data/siteData";
+import { DESTINATIONS, EXPERIENCES, ITINERARIES } from "../data/siteData";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -30,26 +30,13 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="topbar">
-        <div className="topbar-inner container">
-          <div className="topbar-left">
-            <span>📞 <a href={`tel:${COMPANY.phone}`}>{COMPANY.phone}</a></span>
-            <span>✉️ <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></span>
-          </div>
-          <div className="topbar-right">
-            <a href={COMPANY.tripadvisor} target="_blank" rel="noreferrer">⭐ TripAdvisor Reviews</a>
-            <a href={COMPANY.whatsapp} target="_blank" rel="noreferrer">💬 WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
       <nav className={navClass}>
         <div className="nav-inner container">
           <Link to="/" className="nav-logo">
             <div className="logo-mark">E</div>
             <div className="logo-text">
               <span className="logo-main">Ebby Adventures</span>
-              <span className="logo-sub">& Safaris · Arusha, Tanzania</span>
+              <span className="logo-sub">& Safaris / Arusha, Tanzania</span>
             </div>
           </Link>
 
@@ -61,7 +48,7 @@ export default function Navbar() {
               onMouseEnter={() => setDropdown("dest")}
               onMouseLeave={() => setDropdown(null)}
             >
-              <NavLink to="/destinations" className="nav-link">Destinations <span className="chevron">▾</span></NavLink>
+              <NavLink to="/destinations" className="nav-link">Destinations <span className="chevron">v</span></NavLink>
               {dropdown === "dest" && (
                 <div className="dropdown mega">
                   <div className="mega-col">
@@ -76,7 +63,7 @@ export default function Navbar() {
                         {destination.name}
                       </Link>
                     ))}
-                    <Link to="/destinations" className="mega-all">All destinations →</Link>
+                    <Link to="/destinations" className="mega-all">All destinations </Link>
                   </div>
                   <MegaPromo
                     image={activeDestination.thumb}
@@ -93,7 +80,7 @@ export default function Navbar() {
               onMouseEnter={() => setDropdown("exp")}
               onMouseLeave={() => setDropdown(null)}
             >
-              <NavLink to="/experiences" className="nav-link">Experiences <span className="chevron">▾</span></NavLink>
+              <NavLink to="/experiences" className="nav-link">Experiences <span className="chevron">v</span></NavLink>
               {dropdown === "exp" && (
                 <div className="dropdown mega">
                   <div className="mega-col">
@@ -108,7 +95,7 @@ export default function Navbar() {
                         {experience.name}
                       </Link>
                     ))}
-                    <Link to="/experiences" className="mega-all">All experiences →</Link>
+                    <Link to="/experiences" className="mega-all">All experiences </Link>
                   </div>
                   <MegaPromo
                     image={activeExperience.thumb}
@@ -125,7 +112,7 @@ export default function Navbar() {
               onMouseEnter={() => setDropdown("itin")}
               onMouseLeave={() => setDropdown(null)}
             >
-              <NavLink to="/itineraries" className="nav-link">Itineraries <span className="chevron">▾</span></NavLink>
+              <NavLink to="/itineraries" className="nav-link">Itineraries <span className="chevron">v</span></NavLink>
               {dropdown === "itin" && (
                 <div className="dropdown mega">
                   <div className="mega-col">
@@ -140,12 +127,12 @@ export default function Navbar() {
                         {itinerary.title}
                       </Link>
                     ))}
-                    <Link to="/itineraries" className="mega-all">All itineraries →</Link>
+                    <Link to="/itineraries" className="mega-all">All itineraries </Link>
                   </div>
                   <MegaPromo
                     image={activeItinerary.thumb}
                     title={activeItinerary.title}
-                    description={`${activeItinerary.days} days · ${activeItinerary.region}`}
+                    description={`${activeItinerary.days} days / ${activeItinerary.region}`}
                     to={`/itineraries/${activeItinerary.slug}`}
                   />
                 </div>
@@ -211,7 +198,7 @@ function MegaPromo({ image, title, description, to }) {
       <div className="mega-promo-body">
         <div className="mega-promo-title">{title}</div>
         <div className="mega-promo-desc">{description}</div>
-        <Link to={to} className="mega-promo-link">Explore →</Link>
+        <Link to={to} className="mega-promo-link">Explore </Link>
       </div>
     </div>
   );

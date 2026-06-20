@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { ITINERARIES } from "../data/siteData";
 import "./ListingPage.css";
 
@@ -12,7 +12,7 @@ export default function ItinerariesPage() {
         </div>
         <div className="container listing-hero-content">
           <div className="breadcrumb">
-            <Link to="/">Home</Link> <span className="bc-sep">›</span>
+            <Link to="/">Home</Link> <span className="bc-sep">/</span>
             <span>Itineraries</span>
           </div>
           <div className="eyebrow eyebrow-light">Our journeys</div>
@@ -39,7 +39,7 @@ export default function ItinerariesPage() {
                   </div>
                   <div className="itin-full-footer">
                     <strong>{it.price}</strong>
-                    <span className="listing-card-cta">View itinerary →</span>
+                    <span className="listing-card-cta">View itinerary </span>
                   </div>
                 </div>
               </Link>
@@ -52,9 +52,9 @@ export default function ItinerariesPage() {
         <div className="container listing-cta-inner">
           <div>
             <h2>Don't see what you're <em>looking for</em>?</h2>
-            <p>All our itineraries are fully customisable — or we can design something entirely bespoke, just for you.</p>
+            <p>All our itineraries are fully customisable - or we can design something entirely bespoke, just for you.</p>
           </div>
-          <Link to="/contact" className="btn-gold">Plan a custom trip →</Link>
+          <Link to="/contact" className="btn-gold">Plan a custom trip </Link>
         </div>
       </section>
     </div>

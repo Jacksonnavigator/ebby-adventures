@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+﻿import { useParams, Link } from "react-router-dom";
 import { ITINERARIES } from "../data/siteData";
 import PlanForm from "../components/PlanForm";
 import "./DetailPage.css";
@@ -19,11 +19,11 @@ export default function ItineraryDetailPage() {
         </div>
         <div className="container detail-hero-content">
           <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">›</span>
-            <Link to="/itineraries">Itineraries</Link> <span className="bc-sep">›</span>
+            <Link to="/">Home</Link> <span className="bc-sep">/</span>
+            <Link to="/itineraries">Itineraries</Link> <span className="bc-sep">/</span>
             <span>{it.title}</span>
           </div>
-          <div className="eyebrow eyebrow-light">{it.region} · {it.days} days</div>
+          <div className="eyebrow eyebrow-light">{it.region} / {it.days} days</div>
           <h1>{it.title}</h1>
           <p className="detail-hero-tag">{it.desc}</p>
         </div>
@@ -41,7 +41,7 @@ export default function ItineraryDetailPage() {
                   <div key={d.day} className="day-item">
                     <div className="day-num">{d.day}</div>
                     <div className="day-body">
-                      <h4>Day {d.day} — {d.title}</h4>
+                      <h4>Day {d.day}: {d.title}</h4>
                       <p>{d.desc}</p>
                     </div>
                   </div>
@@ -67,10 +67,10 @@ export default function ItineraryDetailPage() {
                       <img src={r.thumb} alt={r.title} />
                     </div>
                     <div className="related-card-body">
-                      <div className="related-region">{r.region} · {r.days} days</div>
+                      <div className="related-region">{r.region} / {r.days} days</div>
                       <h4>{r.title}</h4>
-                      <p>{r.desc.slice(0, 90)}…</p>
-                      <span className="related-cta">View itinerary →</span>
+                      <p>{r.desc.slice(0, 90)}...</p>
+                      <span className="related-cta">View itinerary</span>
                     </div>
                   </Link>
                 ))}
@@ -86,7 +86,7 @@ export default function ItineraryDetailPage() {
             </div>
             <div className="sidebar-contact">
               <p>Questions? Chat with us instantly.</p>
-              <a href="https://wa.me/255627619124" target="_blank" rel="noreferrer" className="btn-whatsapp">💬 WhatsApp us</a>
+              <a href="https://wa.me/255627619124" target="_blank" rel="noreferrer" className="btn-whatsapp">WhatsApp us</a>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { DESTINATIONS } from "../data/siteData";
 import "./ListingPage.css";
 
@@ -12,12 +12,12 @@ export default function DestinationsPage() {
         </div>
         <div className="container listing-hero-content">
           <div className="breadcrumb">
-            <Link to="/">Home</Link> <span className="bc-sep">›</span>
+            <Link to="/">Home</Link> <span className="bc-sep">/</span>
             <span>Destinations</span>
           </div>
           <div className="eyebrow eyebrow-light">Where to go</div>
           <h1>Tanzania <em>Destinations</em>.</h1>
-          <p>From the endless Serengeti plains to Zanzibar's turquoise shores — every corner of Tanzania tells a story.</p>
+          <p>From the endless Serengeti plains to Zanzibar's turquoise shores - every corner of Tanzania tells a story.</p>
         </div>
       </section>
 
@@ -34,13 +34,13 @@ export default function DestinationsPage() {
                 <div className="listing-card-body">
                   <h3>{d.name}</h3>
                   <p className="listing-card-tagline">{d.tagline}</p>
-                  <p className="listing-card-desc">{d.desc.slice(0, 120)}…</p>
+                  <p className="listing-card-desc">{d.desc.slice(0, 120)}...</p>
                   <div className="listing-card-highlights">
                     {d.highlights.slice(0, 3).map(h => (
                       <span key={h} className="tag">{h}</span>
                     ))}
                   </div>
-                  <span className="listing-card-cta">Explore {d.short} →</span>
+                  <span className="listing-card-cta">Explore {d.short} </span>
                 </div>
               </Link>
             ))}
@@ -54,7 +54,7 @@ export default function DestinationsPage() {
             <h2>Not sure where to go?</h2>
             <p>Tell us what you're hoping to experience and we'll build the perfect Tanzania itinerary for you.</p>
           </div>
-          <Link to="/contact" className="btn-gold">Start planning →</Link>
+          <Link to="/contact" className="btn-gold">Start planning </Link>
         </div>
       </section>
     </div>

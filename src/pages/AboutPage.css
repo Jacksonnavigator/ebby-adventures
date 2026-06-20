@@ -1,4 +1,4 @@
-.about-layout {
+﻿.about-layout {
   display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
 }
 .about-text .eyebrow { display: block; margin-bottom: 12px; }

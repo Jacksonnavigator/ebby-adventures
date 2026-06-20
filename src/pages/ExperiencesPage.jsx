@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { EXPERIENCES } from "../data/siteData";
 import "./ListingPage.css";
 
@@ -12,12 +12,12 @@ export default function ExperiencesPage() {
         </div>
         <div className="container listing-hero-content">
           <div className="breadcrumb">
-            <Link to="/">Home</Link> <span className="bc-sep">›</span>
+            <Link to="/">Home</Link> <span className="bc-sep">/</span>
             <span>Experiences</span>
           </div>
           <div className="eyebrow eyebrow-light">By type of trip</div>
           <h1>Tanzania <em>Experiences</em>.</h1>
-          <p>Wildlife safaris, mountain treks, beach escapes, cultural journeys — every kind of Tanzania adventure, led by specialists.</p>
+          <p>Wildlife safaris, mountain treks, beach escapes, cultural journeys - every kind of Tanzania adventure, led by specialists.</p>
         </div>
       </section>
 
@@ -34,9 +34,9 @@ export default function ExperiencesPage() {
                 <div className="listing-card-body">
                   <h3>{e.name}</h3>
                   <p className="listing-card-tagline">{e.tagline}</p>
-                  <p className="listing-card-desc">{e.desc.slice(0, 120)}…</p>
+                  <p className="listing-card-desc">{e.desc.slice(0, 120)}...</p>
                   <div className="listing-card-count">{e.count}</div>
-                  <span className="listing-card-cta">Learn more →</span>
+                  <span className="listing-card-cta">Learn more </span>
                 </div>
               </Link>
             ))}
@@ -50,7 +50,7 @@ export default function ExperiencesPage() {
             <h2>Can't decide? We'll help.</h2>
             <p>Every trip we design starts with a conversation. Tell us your dream and we'll make it happen.</p>
           </div>
-          <Link to="/contact" className="btn-gold">Start planning →</Link>
+          <Link to="/contact" className="btn-gold">Start planning </Link>
         </div>
       </section>
     </div>

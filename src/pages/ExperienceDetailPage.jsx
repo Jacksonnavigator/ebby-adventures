@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+﻿import { useParams, Link } from "react-router-dom";
 import { EXPERIENCES, ITINERARIES } from "../data/siteData";
 import PlanForm from "../components/PlanForm";
 import "./DetailPage.css";
@@ -22,8 +22,8 @@ export default function ExperienceDetailPage() {
         </div>
         <div className="container detail-hero-content">
           <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">›</span>
-            <Link to="/experiences">Experiences</Link> <span className="bc-sep">›</span>
+            <Link to="/">Home</Link> <span className="bc-sep">/</span>
+            <Link to="/experiences">Experiences</Link> <span className="bc-sep">/</span>
             <span>{exp.name}</span>
           </div>
           <div className="eyebrow eyebrow-light">{exp.icon} Experience</div>
@@ -48,7 +48,7 @@ export default function ExperienceDetailPage() {
 
             <div className="detail-block">
               <h2>How it <em>works</em></h2>
-              <p>Every experience we offer is fully private — no shared group tours. Your vehicle, your guide, your pace. We tailor every detail to your group size, fitness level, and what you want to get out of the trip.</p>
+              <p>Every experience we offer is fully private, with no shared group tours. Your vehicle, your guide, your pace. We tailor every detail to your group size, fitness level, and what you want to get out of the trip.</p>
               <p>Before you travel, your dedicated specialist will reach out to confirm all details, share a full trip brief, and answer any last-minute questions. During the trip, we're always reachable on WhatsApp.</p>
             </div>
 
@@ -62,10 +62,10 @@ export default function ExperienceDetailPage() {
                         <img src={it.thumb} alt={it.title} />
                       </div>
                       <div className="related-card-body">
-                        <div className="related-region">{it.region} · {it.days} days</div>
+                        <div className="related-region">{it.region} / {it.days} days</div>
                         <h4>{it.title}</h4>
-                        <p>{it.desc.slice(0, 90)}…</p>
-                        <span className="related-cta">View itinerary →</span>
+                        <p>{it.desc.slice(0, 90)}...</p>
+                        <span className="related-cta">View itinerary</span>
                       </div>
                     </Link>
                   ))}
@@ -82,7 +82,7 @@ export default function ExperienceDetailPage() {
             </div>
             <div className="sidebar-contact">
               <p>Prefer to chat first?</p>
-              <a href="https://wa.me/255627619124" target="_blank" rel="noreferrer" className="btn-whatsapp">💬 WhatsApp us</a>
+              <a href="https://wa.me/255627619124" target="_blank" rel="noreferrer" className="btn-whatsapp">WhatsApp us</a>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function ExperienceDetailPage() {
               <div className="eyebrow">Explore more</div>
               <h2>Other <em>experiences</em>.</h2>
             </div>
-            <Link to="/experiences" className="view-all">All experiences →</Link>
+            <Link to="/experiences" className="view-all">All experiences</Link>
           </div>
           <div className="more-grid">
             {EXPERIENCES.filter(e => e.slug !== slug).slice(0, 3).map(e => (
@@ -107,7 +107,7 @@ export default function ExperienceDetailPage() {
                 <div className="more-card-body">
                   <div className="more-card-region">{e.icon} Experience</div>
                   <h3>{e.name}</h3>
-                  <span>Explore →</span>
+                  <span>Explore</span>
                 </div>
               </Link>
             ))}

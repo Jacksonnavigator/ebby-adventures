@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { KILI_ROUTES, ITINERARIES } from "../data/siteData";
 import PlanForm from "../components/PlanForm";
 import "./DetailPage.css";
@@ -17,15 +17,15 @@ export default function KilimanjaroPage() {
         </div>
         <div className="container detail-hero-content">
           <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">›</span>
+            <Link to="/">Home</Link> <span className="bc-sep">/</span>
             <span>Kilimanjaro</span>
           </div>
-          <div className="eyebrow eyebrow-light">⛰️ Mount Kilimanjaro</div>
+          <div className="eyebrow eyebrow-light">Mount Kilimanjaro</div>
           <h1>Climb the <em>Roof of Africa</em>.</h1>
           <p>At 5,895m, Kilimanjaro is Africa's highest peak and one of the world's most remarkable trekking experiences. Our expert guides have led hundreds of climbers safely to Uhuru Peak.</p>
           <div className="detail-hero-btns">
             <Link to="/contact" className="btn-gold">Plan my climb</Link>
-            <a href="#routes" className="btn-outline-white">See all routes ↓</a>
+            <a href="#routes" className="btn-outline-white">See all routes down</a>
           </div>
         </div>
       </section>
@@ -37,9 +37,9 @@ export default function KilimanjaroPage() {
             { label: "Summit Height", val: "5,895m / 19,341 ft" },
             { label: "Location",      val: "Northern Tanzania" },
             { label: "Difficulty",    val: "No technical climbing" },
-            { label: "Best Routes",   val: "Machame · Lemosho · Marangu" },
-            { label: "Trek Duration", val: "6–10 days" },
-            { label: "Best Season",   val: "Jan–Mar & Jun–Oct" },
+            { label: "Best Routes",   val: "Machame / Lemosho / Marangu" },
+            { label: "Trek Duration", val: "6-10 days" },
+            { label: "Best Season",   val: "Jan-Mar & Jun-Oct" },
           ].map(f => (
             <div key={f.label} className="kili-fact">
               <strong>{f.val}</strong>
@@ -55,12 +55,12 @@ export default function KilimanjaroPage() {
           <div className="kili-intro-text">
             <div className="eyebrow">The mountain</div>
             <h2>Why climb <em>Kilimanjaro</em> with Ebby?</h2>
-            <p>Kilimanjaro is Africa's ultimate bucket-list adventure. It requires no technical mountaineering skills — just strong will, correct pacing, and the right support team. That's where we come in.</p>
+            <p>Kilimanjaro is Africa's ultimate bucket-list adventure. It requires no technical mountaineering skills - just strong will, correct pacing, and the right support team. That's where we come in.</p>
             <p>Our summit guides are KINAPA-licensed, trained in wilderness first aid, and have made the climb dozens of times. We run small, well-equipped expeditions with optimal crew ratios for your safety and success.</p>
             <div className="kili-why-list">
               {[
                 "KINAPA-licensed, experienced summit guides",
-                "High summit success rates — 85–95% by route",
+                "High summit success rates - 85-95% by route",
                 "Small groups for personal attention",
                 "Full gear and safety equipment provided",
                 "Acclimatisation-optimised itineraries",
@@ -68,7 +68,7 @@ export default function KilimanjaroPage() {
                 "Wilderness first aid trained crew",
                 "Summit certificate upon completion",
               ].map(w => (
-                <div key={w} className="kili-why-item">✓ {w}</div>
+                <div key={w} className="kili-why-item">{w}</div>
               ))}
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function KilimanjaroPage() {
           <div className="section-head">
             <div className="eyebrow">Climbing routes</div>
             <h2>Choose your <em>route</em> to the summit.</h2>
-            <p>Each route up Kilimanjaro has its own character — from the scenic drama of Machame to the remote solitude of the Northern Circuit. We'll help you pick the right one for your fitness, time, and budget.</p>
+            <p>Each route up Kilimanjaro has its own character - from the scenic drama of Machame to the remote solitude of the Northern Circuit. We'll help you pick the right one for your fitness, time, and budget.</p>
           </div>
           <div className="route-grid">
             {KILI_ROUTES.map(r => (
@@ -101,7 +101,7 @@ export default function KilimanjaroPage() {
                     <span className="route-meta-item route-success"><strong>{r.success}</strong><em>Success Rate</em></span>
                   </div>
                   <p>{r.desc}</p>
-                  <Link to="/contact" className="route-cta">Book this route →</Link>
+                  <Link to="/contact" className="route-cta">Book this route</Link>
                 </div>
               </div>
             ))}
@@ -125,9 +125,9 @@ export default function KilimanjaroPage() {
                     <div className="more-card-fade" />
                   </div>
                   <div className="more-card-body">
-                    <div className="more-card-region">{it.days} days · {it.price}</div>
+                    <div className="more-card-region">{it.days} days / {it.price}</div>
                     <h3>{it.title}</h3>
-                    <span>View itinerary →</span>
+                    <span>View itinerary</span>
                   </div>
                 </Link>
               ))}
@@ -147,10 +147,10 @@ export default function KilimanjaroPage() {
             <div className="kili-faq">
               <h3>Frequently asked questions</h3>
               {[
-                { q: "Do I need climbing experience?", a: "No. Kilimanjaro is a trekking peak — no ropes, axes, or technical skills required. A good level of fitness and the right mindset are all you need." },
-                { q: "What is the best time to climb?", a: "January–March and June–October offer the best weather windows. We recommend avoiding the rainy seasons of April–May and November." },
-                { q: "How do I train for Kilimanjaro?", a: "We recommend 3–4 months of regular hiking, stair climbing, and cardiovascular training. Altitude acclimatisation exercises are also helpful." },
-                { q: "What gear do I need to bring?", a: "We provide a full kit list on booking. Key items include warm layers, waterproof jacket and trousers, good hiking boots, and a sleeping bag rated to -10°C or lower." },
+                { q: "Do I need climbing experience?", a: "No. Kilimanjaro is a trekking peak - no ropes, axes, or technical skills required. A good level of fitness and the right mindset are all you need." },
+                { q: "What is the best time to climb?", a: "January-March and June-October offer the best weather windows. We recommend avoiding the rainy seasons of April-May and November." },
+                { q: "How do I train for Kilimanjaro?", a: "We recommend 3-4 months of regular hiking, stair climbing, and cardiovascular training. Altitude acclimatisation exercises are also helpful." },
+                { q: "What gear do I need to bring?", a: "We provide a full kit list on booking. Key items include warm layers, waterproof jacket and trousers, good hiking boots, and a sleeping bag rated to -10C or lower." },
               ].map(f => (
                 <div key={f.q} className="faq-item">
                   <h4>{f.q}</h4>

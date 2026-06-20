@@ -1,5 +1,4 @@
-/* ── Hero ─────────────────────────────────────────── */
-.home-hero {
+﻿.home-hero {
   position: relative;
   min-height: 94vh;
   display: flex;
@@ -56,7 +55,6 @@
 .hero-stat span   { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
 .hero-stat-div { width: 1px; height: 40px; background: rgba(0,0,0,0.1); flex-shrink: 0; }
 
-/* ── Destinations ── */
 .dest-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .dest-card {
   border-radius: var(--radius); overflow: hidden;
@@ -80,7 +78,6 @@
 .dest-card-body p  { font-size: 0.84rem; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
 .dest-card-cta { font-size: 0.84rem; font-weight: 700; color: var(--gold); }
 
-/* ── Experiences ── */
 .exp-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
 .exp-card {
   position: relative; border-radius: var(--radius);
@@ -98,7 +95,6 @@
 .exp-card-body h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; margin-bottom: 4px; }
 .exp-card-body span { font-size: 0.75rem; color: var(--gold-lt); font-weight: 600; }
 
-/* ── Why Ebby ── */
 .home-why { background: var(--dark2); color: var(--white); padding: 100px 0; }
 .home-why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .home-why-text .eyebrow { display: block; margin-bottom: 12px; }
@@ -109,7 +105,6 @@
 .why-item { font-size: 0.88rem; color: rgba(255,255,255,0.75); font-weight: 500; }
 .home-why-img { border-radius: var(--radius); overflow: hidden; height: 480px; box-shadow: var(--shadow-xl); }
 
-/* ── Itineraries ── */
 .itin-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .itin-card {
   background: var(--white); border-radius: var(--radius);
@@ -135,7 +130,6 @@
 .itin-card-footer strong { font-size: 0.95rem; color: var(--dark); }
 .itin-cta { font-size: 0.84rem; font-weight: 700; color: var(--gold); }
 
-/* ── Kili banner ── */
 .home-kili { position: relative; min-height: 500px; display: flex; align-items: center; }
 .home-kili-bg { position: absolute; inset: 0; }
 .home-kili-bg img { object-position: center 55%; }
@@ -154,7 +148,6 @@
   padding: 6px 14px; border-radius: 50px;
 }
 
-/* ── Testimonials ── */
 .testi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .testi-card {
   background: var(--white); border: 1px solid rgba(0,0,0,0.07);
@@ -175,7 +168,6 @@
 .testi-author strong { display: block; font-size: 0.88rem; color: var(--dark); }
 .testi-author span   { font-size: 0.75rem; color: var(--muted); }
 
-/* ── Plan section ── */
 .home-plan { padding: 100px 0; }
 .home-plan-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
 .home-plan-left .eyebrow { display: block; margin-bottom: 12px; }
@@ -185,7 +177,6 @@
 .plan-promises { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
 .plan-promise  { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
 
-/* ── Responsive ── */
 @media (max-width: 1200px) {
   .exp-grid   { grid-template-columns: repeat(3, 1fr); }
   .testi-grid { grid-template-columns: repeat(2, 1fr); }

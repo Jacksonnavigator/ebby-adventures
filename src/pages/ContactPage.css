@@ -1,4 +1,4 @@
-.contact-layout {
+﻿.contact-layout {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 72px;
@@ -21,7 +21,7 @@
 }
 .contact-method:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 .contact-method-wa { border-color: #25D366; background: #f0fff4; }
-.cm-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+.cm-icon { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(201,168,76,0.14); color: var(--gold); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; flex-shrink: 0; margin-top: 2px; text-transform: uppercase; }
 .contact-method strong { display: block; font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
 .contact-method span   { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 4px; }
 .contact-method em     { display: block; font-size: 0.85rem; font-weight: 600; color: var(--gold); font-style: normal; }
@@ -49,7 +49,7 @@
   display: flex; align-items: flex-start; gap: 8px;
   line-height: 1.5;
 }
-.contact-promise li::before { content: "✓"; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.contact-promise li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 8px;}
 
 .contact-form-wrap {
   background: var(--white);

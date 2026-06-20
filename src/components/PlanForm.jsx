@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { COMPANY } from "../data/siteData";
 import "./PlanForm.css";
 
@@ -56,12 +56,12 @@ export default function PlanForm({ compact = false }) {
     return (
       <div className={`plan-form${compact ? " compact" : ""}`}>
         <div className="plan-done">
-          <div className="plan-done-icon">✓</div>
+          <div className="plan-done-icon">OK</div>
           <h3>Your enquiry is ready to send!</h3>
           <p>Your email app should open with all the trip details filled in. If it doesn't, use the buttons below.</p>
           <div className="plan-done-actions">
             <a href={emailHref} className="btn-dark">Open email again</a>
-            <a href={whatsappHref} target="_blank" rel="noreferrer" className="btn-whatsapp">💬 Send on WhatsApp</a>
+            <a href={whatsappHref} target="_blank" rel="noreferrer" className="btn-whatsapp">Send on WhatsApp</a>
           </div>
           <button type="button" className="plan-edit" onClick={() => setDone(false)}>Edit enquiry</button>
         </div>
@@ -101,7 +101,7 @@ export default function PlanForm({ compact = false }) {
               <option>Full Tanzania Circuit</option>
             </select>
           </label>
-          <button type="button" className="btn-form-next" onClick={() => setStep(2)}>Continue →</button>
+          <button type="button" className="btn-form-next" onClick={() => setStep(2)}>Continue</button>
         </div>
       )}
 
@@ -116,18 +116,18 @@ export default function PlanForm({ compact = false }) {
           <label>Budget level
             <select value={form.budget} onChange={e => set("budget", e.target.value)}>
               <option value="">Select budget range</option>
-              <option>Value — budget-conscious adventure</option>
-              <option>Mid-range — comfort & quality</option>
-              <option>Premium — upmarket lodges</option>
-              <option>Luxury — exclusive properties</option>
+              <option>Value - budget-conscious adventure</option>
+              <option>Mid-range - comfort & quality</option>
+              <option>Premium - upmarket lodges</option>
+              <option>Luxury - exclusive properties</option>
             </select>
           </label>
           <label>Any specific wishes or questions?
             <textarea rows={3} placeholder="E.g. celebrate anniversary, need child-friendly lodges, want hot air balloon..." value={form.notes} onChange={e => set("notes", e.target.value)} />
           </label>
           <div className="form-row">
-            <button type="button" className="btn-form-back" onClick={() => setStep(1)}>← Back</button>
-            <button type="button" className="btn-form-next" onClick={() => setStep(3)}>Continue →</button>
+            <button type="button" className="btn-form-back" onClick={() => setStep(1)}>Back</button>
+            <button type="button" className="btn-form-next" onClick={() => setStep(3)}>Continue</button>
           </div>
         </div>
       )}
@@ -146,8 +146,8 @@ export default function PlanForm({ compact = false }) {
           </label>
           {error && <div className="form-error">{error}</div>}
           <div className="form-row">
-            <button type="button" className="btn-form-back" onClick={() => setStep(2)}>← Back</button>
-            <button type="button" className="btn-form-submit" onClick={submit}>Send enquiry →</button>
+            <button type="button" className="btn-form-back" onClick={() => setStep(2)}>Back</button>
+            <button type="button" className="btn-form-submit" onClick={submit}>Send enquiry</button>
           </div>
         </div>
       )}

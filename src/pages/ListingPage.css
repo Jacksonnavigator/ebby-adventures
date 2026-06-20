@@ -1,5 +1,4 @@
-/* ── Listing Hero ─────────────────────────────── */
-.listing-hero {
+﻿.listing-hero {
   position: relative;
   height: 440px;
   display: flex;
@@ -28,7 +27,6 @@
   line-height: 1.75;
 }
 
-/* ── Breadcrumb ───────────────────────────────── */
 .breadcrumb {
   display: flex; align-items: center; gap: 8px;
   font-size: 0.78rem; color: rgba(255,255,255,0.65);
@@ -51,7 +49,6 @@
 .breadcrumb-dark a:hover { color: var(--gold); }
 .breadcrumb-dark > span:last-child { color: var(--dark); font-weight: 600; }
 
-/* ── Listing grid ─────────────────────────────── */
 .listing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -91,7 +88,6 @@
 .listing-card-cta { font-size: 0.86rem; font-weight: 700; color: var(--gold); }
 .listing-card-cta:hover { text-decoration: underline; }
 
-/* ── CTA band ─────────────────────────────────── */
 .listing-cta-band {
   background: var(--dark);
   padding: 64px 0;
@@ -107,7 +103,6 @@
 .listing-cta-inner h2 em { color: var(--gold-lt); }
 .listing-cta-inner p { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 480px; line-height: 1.7; }
 
-/* ── Detail hero ──────────────────────────────── */
 .detail-hero {
   position: relative;
   height: 540px;
@@ -139,7 +134,6 @@
 }
 .detail-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* ── Detail layout ────────────────────────────── */
 .detail-layout {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -165,8 +159,7 @@
   list-style: none;
 }
 .highlight-list li::before {
-  content: "✓";
-  color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 8px;
 }
 
 .wildlife-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
@@ -185,7 +178,6 @@
   padding: 7px 16px; border-radius: 50px;
 }
 
-/* ── Aside card ───────────────────────────────── */
 .aside-card {
   background: var(--white);
   border: 1px solid rgba(0,0,0,0.08);
@@ -206,7 +198,6 @@
 .aside-row-label { color: var(--muted); font-weight: 500; flex-shrink: 0; }
 .aside-row-val   { color: var(--dark); font-weight: 600; text-align: right; }
 
-/* ── Itinerary day list ───────────────────────── */
 .day-list { display: flex; flex-direction: column; gap: 0; }
 .day-item {
   display: flex; gap: 20px;
@@ -227,7 +218,6 @@
 .day-body h4 { font-family: var(--serif); font-size: 1.05rem; color: var(--dark); margin-bottom: 5px; }
 .day-body p  { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
-/* ── Includes list ────────────────────────────── */
 .includes-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -238,9 +228,8 @@
   display: flex; align-items: flex-start; gap: 8px;
   font-size: 0.88rem; color: var(--mid);
 }
-.includes-item::before { content: "✓"; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.includes-item::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 8px;}
 
-/* ── Related cards ────────────────────────────── */
 .related-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -248,7 +237,6 @@
   margin-top: 16px;
 }
 
-/* ── Responsive ───────────────────────────────── */
 @media (max-width: 1100px) {
   .detail-layout { grid-template-columns: 1fr; gap: 40px; }
   .detail-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -264,7 +252,6 @@
   .listing-cta-inner { flex-direction: column; text-align: center; }
 }
 
-/* ── Itineraries full listing ─────────────────── */
 .itin-full-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

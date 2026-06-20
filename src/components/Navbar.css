@@ -1,25 +1,11 @@
-.topbar {
-  background: var(--dark);
-  color: rgba(255,255,255,0.65);
-  font-size: 0.76rem;
-  padding: 9px 0;
-  z-index: 200;
-  position: relative;
-}
-.topbar-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-.topbar-left, .topbar-right { display: flex; gap: 20px; align-items: center; }
-.topbar a { color: rgba(255,255,255,0.65); transition: color var(--trans); }
-.topbar a:hover { color: var(--gold-lt); }
-
-/* ── Navbar shell ─────────────── */
-.navbar {
+﻿.navbar {
   position: sticky;
   top: 0;
   z-index: 300;
   transition: background var(--trans), box-shadow var(--trans);
 }
 
-/* On homepage before scroll — transparent over hero */
+/* On homepage before scroll - transparent over hero */
 .navbar:not(.scrolled) {
   background: rgba(10,10,8,0.44);
   backdrop-filter: blur(10px);
@@ -37,7 +23,6 @@
   gap: 8px;
 }
 
-/* ── Logo ─────────────────────── */
 .nav-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .logo-mark {
   width: 44px; height: 44px;
@@ -59,7 +44,6 @@
 .navbar.scrolled .logo-main { color: var(--dark); }
 .navbar.scrolled .logo-sub  { color: var(--muted); }
 
-/* ── Links ────────────────────── */
 .nav-links {
   display: flex; align-items: center;
   flex: 1;
@@ -95,7 +79,6 @@
 .navbar.scrolled .nav-link.active { color: var(--gold) !important; }
 .chevron { font-size: 0.65rem; margin-left: 2px; opacity: 0.7; }
 
-/* ── Mega dropdown ────────────── */
 .dropdown {
   position: absolute;
   top: calc(100% + 12px);
@@ -161,10 +144,8 @@
 .mega-promo-link  { font-size: 0.82rem; font-weight: 700; color: var(--gold); }
 .mega-promo-link:hover { text-decoration: underline; }
 
-/* ── CTA ──────────────────────── */
 .nav-cta { margin-left: auto; flex-shrink: 0; }
 
-/* ── Hamburger ────────────────── */
 .hamburger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer;
@@ -178,7 +159,6 @@
 }
 .navbar.scrolled .hamburger span { background: var(--dark); }
 
-/* ── Mobile menu ──────────────── */
 .mobile-menu {
   background: var(--white);
   border-top: 1px solid rgba(0,0,0,0.08);
@@ -201,10 +181,8 @@
 .mobile-link:hover { color: var(--gold); }
 .mobile-cta { padding-top: 16px; }
 
-/* ── Responsive ───────────────── */
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .hamburger { display: flex; }
-  .topbar    { display: none; }
 }
