@@ -88,6 +88,114 @@
 .listing-card-cta { font-size: 0.86rem; font-weight: 700; color: var(--gold); }
 .listing-card-cta:hover { text-decoration: underline; }
 
+.itinerary-shell {
+  display: grid;
+  grid-template-columns: minmax(260px, 300px) 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.itinerary-filters {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  position: sticky;
+  top: 24px;
+}
+.itinerary-filters-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.itinerary-filters-head h2 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--dark);
+}
+.itinerary-filters-copy {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.filter-group label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.filter-group select {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  color: var(--dark);
+  background: var(--light);
+}
+.filter-reset {
+  border: none;
+  background: transparent;
+  color: var(--gold);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+.filter-reset:hover { text-decoration: underline; }
+
+.itinerary-results {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.itinerary-results-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.itinerary-results-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+  color: var(--dark);
+  margin: 6px 0 0;
+}
+.itinerary-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(214, 172, 86, 0.12);
+}
+.itinerary-empty {
+  background: var(--white);
+  border: 1px dashed rgba(0,0,0,0.14);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+.itinerary-empty h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.itinerary-empty p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .listing-cta-band {
   background: var(--dark);
   padding: 64px 0;
