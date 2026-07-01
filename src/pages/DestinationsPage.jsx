@@ -1,5 +1,5 @@
 ﻿import { Link } from "react-router-dom";
-import { DESTINATIONS, TREKKING } from "../data/siteData";
+import { DESTINATIONS, TREKKING, COASTS } from "../data/siteData";
 import "./ListingPage.css";
 
 const destinationHighlights = [
@@ -20,13 +20,13 @@ const destinationHighlights = [
   },
 ];
 
-const nationalParks = DESTINATIONS.filter((item) => !["zanzibar", "mafia-island"].includes(item.slug));
-const islands = DESTINATIONS.filter((item) => ["zanzibar", "mafia-island"].includes(item.slug));
-const mountains = TREKKING.filter((item) => ["kilimanjaro", "mount-meru", "ol-doinyo-lengai", "usambara-mountains"].includes(item.slug));
+const nationalParks = DESTINATIONS.filter((item) => !["zanzibar", "mafia-island", "pemba", "tanga-coast", "kilwa"].includes(item.slug));
+const islands = COASTS;
+const mountains = TREKKING.filter((item) => ["kilimanjaro", "mount-meru", "ol-doinyo-lengai", "usambara-mountains", "udzungwa-mountains", "uluguru-mountains", "mahale-mountains", "rungwe", "pare-mountains", "kitulo", "kipengere", "hanang"].includes(item.slug));
 
 function renderCards(items, kind = "destination") {
   return items.map((item) => {
-    const href = kind === "mountain" ? `/trekking/${item.slug}` : `/destinations/${item.slug}`;
+    const href = kind === "mountain" ? `/trekking/${item.slug}` : kind === "coast" ? `/coasts/${item.slug}` : `/destinations/${item.slug}`;
     const thumb = item.thumb || item.hero;
 
     return (
@@ -97,6 +97,11 @@ export default function DestinationsPage() {
                 <span>{item.stat}</span>
               </div>
             ))}
+            <Link to="/coasts" className="page-feature-card" style={{ textDecoration: "none" }}>
+              <h3>Coastal destinations</h3>
+              <p>Explore Zanzibar, Pemba, Mafia, Tanga and Kilwa with dedicated pages and practical travel details.</p>
+              <span>Island escapes & heritage coast</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -127,7 +132,7 @@ export default function DestinationsPage() {
             <div className="eyebrow">Islands</div>
             <h2>Unwind on Tanzania's island escapes and coastal retreats.</h2>
           </div>
-          <div className="listing-grid">{renderCards(islands)}</div>
+          <div className="listing-grid">{renderCards(islands, "coast")}</div>
         </div>
       </section>
 

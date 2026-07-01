@@ -67,6 +67,11 @@ export default function ExperiencesPage() {
             <div className="eyebrow">Featured experiences</div>
             <h2>Choose an experience that matches your travel style.</h2>
           </div>
+          <div className="section-heading" style={{ marginBottom: "16px" }}>
+            <p style={{ color: "var(--muted)", maxWidth: "760px" }}>
+              Cultural journeys now include Maasai, Hadzabe and Datoga, Chagga, Usambara mountain culture, Mto wa Mbu, Pangani Swahili culture, Meru heritage and the Olduvai story of human origins.
+            </p>
+          </div>
           <div className="listing-grid">
             {EXPERIENCES.map((e) => (
               <Link to={`/experiences/${e.slug}`} key={e.slug} className="listing-card">

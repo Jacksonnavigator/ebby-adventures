@@ -44,6 +44,20 @@ export default function ExperienceDetailPage() {
               </div>
             </div>
 
+            {exp.featuredCultures && (
+              <div className="detail-block">
+                <h2>Featured cultures</h2>
+                <div className="detail-list">
+                  {exp.featuredCultures.map(item => (
+                    <div key={item.name} className="includes-item" style={{ marginBottom: "10px" }}>
+                      <strong>{item.name}</strong>
+                      <p style={{ marginTop: "6px", color: "var(--muted)" }}>{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="detail-block">
               <h2>What's <em>included</em></h2>
               <div className="includes-grid">

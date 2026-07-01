@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import HomePage             from "./pages/HomePage";
 import DestinationsPage     from "./pages/DestinationsPage";
 import DestinationDetailPage from "./pages/DestinationDetailPage";
+import CoastsPage           from "./pages/CoastsPage";
+import CoastDetailPage      from "./pages/CoastDetailPage";
 import ExperiencesPage      from "./pages/ExperiencesPage";
 import ExperienceDetailPage from "./pages/ExperienceDetailPage";
 import ItinerariesPage      from "./pages/ItinerariesPage";
@@ -34,6 +36,8 @@ function Layout() {
           <Route path="/"                            element={<HomePage />} />
           <Route path="/destinations"                element={<DestinationsPage />} />
           <Route path="/destinations/:slug"          element={<DestinationDetailPage />} />
+          <Route path="/coasts"                      element={<CoastsPage />} />
+          <Route path="/coasts/:slug"                element={<CoastDetailPage />} />
           <Route path="/experiences"                 element={<ExperiencesPage />} />
           <Route path="/experiences/:slug"           element={<ExperienceDetailPage />} />
           <Route path="/itineraries"                 element={<ItinerariesPage />} />

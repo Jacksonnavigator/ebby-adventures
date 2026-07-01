@@ -182,6 +182,7 @@ export default function Navbar() {
                 </div>
               )}
             </div>
+            <NavLink to="/coasts" className="nav-link">Coasts</NavLink>
             <NavLink to="/about" className="nav-link">About Us</NavLink>
             <NavLink to="/gallery" className="nav-link">Gallery</NavLink>
             <NavLink to="/contact" className="nav-link">Contact</NavLink>
@@ -226,6 +227,7 @@ export default function Navbar() {
               ))}
             </div>
             <div className="mobile-section">
+              <Link to="/coasts" className="mobile-link">Coasts</Link>
               <Link to="/about" className="mobile-link">About Us</Link>
               <Link to="/gallery" className="mobile-link">Gallery</Link>
               <Link to="/contact" className="mobile-link">Contact</Link>
