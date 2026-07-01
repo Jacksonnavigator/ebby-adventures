@@ -21,11 +21,6 @@ export default function ExperienceDetailPage() {
           <div className="detail-hero-overlay" />
         </div>
         <div className="container detail-hero-content">
-          <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">/</span>
-            <Link to="/experiences">Experiences</Link> <span className="bc-sep">/</span>
-            <span>{exp.name}</span>
-          </div>
           <div className="eyebrow eyebrow-light">{exp.icon} Experience</div>
           <h1>{exp.name}</h1>
           <p className="detail-hero-tag">{exp.tagline}</p>
@@ -36,6 +31,18 @@ export default function ExperienceDetailPage() {
         <div className="container detail-body">
           <div className="detail-main">
             <p className="detail-lead">{exp.desc}</p>
+
+            <div className="detail-block">
+              <h2>Why choose this</h2>
+              <p>{exp.whyChoose}</p>
+            </div>
+
+            <div className="detail-block">
+              <h2>Best for</h2>
+              <div className="detail-tags">
+                {exp.bestFor.map(item => <span key={item} className="tag">{item}</span>)}
+              </div>
+            </div>
 
             <div className="detail-block">
               <h2>What's <em>included</em></h2>

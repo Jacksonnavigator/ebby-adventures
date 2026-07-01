@@ -18,11 +18,6 @@ export default function ItineraryDetailPage() {
           <div className="detail-hero-overlay" />
         </div>
         <div className="container detail-hero-content">
-          <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">/</span>
-            <Link to="/itineraries">Itineraries</Link> <span className="bc-sep">/</span>
-            <span>{it.title}</span>
-          </div>
           <div className="eyebrow eyebrow-light">{it.region} / {it.days} days</div>
           <h1>{it.title}</h1>
           <p className="detail-hero-tag">{it.desc}</p>

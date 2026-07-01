@@ -1,6 +1,7 @@
-﻿import { Link } from "react-router-dom";
-import { COMPANY } from "../data/siteData";
+import { Link } from "react-router-dom";
+import { COMPANY, TREKKING, DESTINATIONS, EXPERIENCES, ITINERARIES } from "../data/siteData";
 import "./Footer.css";
+import logoSrc from "../assets/favicon.jpg";
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <div className="footer-logo-mark">E</div>
+              <img src={logoSrc} alt="Ebby Adventures" className="footer-logo-img" />
               <div>
                 <div className="footer-logo-name">Ebby Adventures & Safaris</div>
                 <div className="footer-logo-loc">Arusha, Tanzania</div>
@@ -33,42 +34,43 @@ export default function Footer() {
           {/* Destinations */}
           <div className="footer-col">
             <div className="footer-col-title">Destinations</div>
-            <Link to="/destinations/serengeti"   className="footer-link">Serengeti</Link>
-            <Link to="/destinations/ngorongoro"  className="footer-link">Ngorongoro Crater</Link>
-            <Link to="/destinations/tarangire"   className="footer-link">Tarangire</Link>
-            <Link to="/destinations/lake-manyara" className="footer-link">Lake Manyara</Link>
-            <Link to="/destinations/zanzibar"    className="footer-link">Zanzibar</Link>
-            <Link to="/destinations/selous"      className="footer-link">Selous</Link>
-            <Link to="/destinations"             className="footer-link footer-link-gold">All destinations</Link>
+            {DESTINATIONS.slice(0, 6).map(d => (
+              <Link key={d.slug} to={`/destinations/${d.slug}`} className="footer-link">{d.short}</Link>
+            ))}
+            <Link to="/destinations" className="footer-link footer-link-gold">All destinations</Link>
           </div>
 
           {/* Experiences */}
           <div className="footer-col">
             <div className="footer-col-title">Experiences</div>
-            <Link to="/experiences/wildlife-safari"  className="footer-link">Wildlife Safaris</Link>
-            <Link to="/experiences/kilimanjaro"       className="footer-link">Kilimanjaro Trek</Link>
-            <Link to="/experiences/zanzibar-beach"   className="footer-link">Zanzibar Beach</Link>
-            <Link to="/experiences/cultural-tours"   className="footer-link">Cultural Tours</Link>
-            <Link to="/experiences/family-safari"    className="footer-link">Family Safaris</Link>
-            <Link to="/experiences/honeymoon"        className="footer-link">Honeymoon Safaris</Link>
-            <Link to="/experiences"                  className="footer-link footer-link-gold">All experiences</Link>
+            {EXPERIENCES.slice(0, 5).map(e => (
+              <Link key={e.slug} to={`/experiences/${e.slug}`} className="footer-link">{e.name}</Link>
+            ))}
+            <Link to="/trekking/kilimanjaro" className="footer-link">Kilimanjaro Trek</Link>
+            <Link to="/experiences" className="footer-link footer-link-gold">All experiences</Link>
           </div>
 
           {/* Company */}
           <div className="footer-col">
             <div className="footer-col-title">Itineraries</div>
-            <Link to="/itineraries/northern-circuit-classic"  className="footer-link">Northern Circuit Classic</Link>
-            <Link to="/itineraries/safari-and-zanzibar"        className="footer-link">Safari & Zanzibar</Link>
-            <Link to="/itineraries/kilimanjaro-machame"        className="footer-link">Kilimanjaro Machame</Link>
-            <Link to="/itineraries/southern-escape"            className="footer-link">Southern Escape</Link>
-            <Link to="/itineraries/family-adventure"           className="footer-link">Family Adventure</Link>
-            <Link to="/itineraries"                            className="footer-link footer-link-gold">All itineraries</Link>
+            {ITINERARIES.slice(0, 5).map(i => (
+              <Link key={i.slug} to={`/itineraries/${i.slug}`} className="footer-link">{i.title}</Link>
+            ))}
+            <Link to="/itineraries" className="footer-link footer-link-gold">All itineraries</Link>
+          </div>
+
+          <div className="footer-col">
+            <div className="footer-col-title">Trekking</div>
+            {TREKKING.map(t => (
+              <Link key={t.slug} to={`/trekking/${t.slug}`} className="footer-link">{t.name}</Link>
+            ))}
+            <Link to="/trekking" className="footer-link footer-link-gold">All treks</Link>
           </div>
 
           <div className="footer-col">
             <div className="footer-col-title">Company</div>
             <Link to="/about"          className="footer-link">About Us</Link>
-            <Link to="/kilimanjaro"    className="footer-link">Kilimanjaro</Link>
+            <Link to="/gallery"        className="footer-link">Gallery</Link>
             <Link to="/contact"        className="footer-link">Contact</Link>
             <a href={COMPANY.tripadvisor} target="_blank" rel="noreferrer" className="footer-link">TripAdvisor Reviews</a>
             <a href={COMPANY.whatsapp}    target="_blank" rel="noreferrer" className="footer-link">WhatsApp Chat</a>

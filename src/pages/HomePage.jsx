@@ -1,20 +1,74 @@
-﻿import { Link } from "react-router-dom";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { Link } from "react-router-dom";
 import { DESTINATIONS, EXPERIENCES, ITINERARIES, TESTIMONIALS } from "../data/siteData";
 import PlanForm from "../components/PlanForm";
 import "./HomePage.css";
+import heroImg from "../assets/hero.jpg";
+import kiliImg from "../assets/Kilimanjaro1.jpg";
+import tangaImg from "../assets/Tanga.jpg"
+import AllImg from "../assets/All.jpg"
+import TwigaImg from "../assets/Twiga.jpg"
+import safariGuideImg from "../assets/downloaded_image_14.jpg";
+
+
+const HERO_SLIDES = [
+  { src: heroImg, alt: "Tanzania safari landscape" },
+  { src: kiliImg, alt: "Mount Kilimanjaro" },
+  { src: AllImg, alt: "All over Tanzania" },
+  { src: TwigaImg, alt: "Twiga over Tanzania"}
+];
+const SLIDE_INTERVAL = 6000;
 
 export default function HomePage() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [videoMuted, setVideoMuted] = useState(true);
+  const videoRef = useRef(null);
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    const command = videoMuted ? "unMute" : "mute";
+    videoRef.current.contentWindow.postMessage(
+      JSON.stringify({ event: "command", func: command, args: [] }),
+      "*"
+    );
+    setVideoMuted(!videoMuted);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, SLIDE_INTERVAL);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="home">
       <section className="home-hero">
         <div className="home-hero-bg">
-          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1800&q=85" alt="Tanzania safari" />
+          {HERO_SLIDES.map((slide, i) => (
+            <img
+              key={i}
+              src={slide.src}
+              alt={slide.alt}
+              className={`hero-slide${i === activeSlide ? " active" : ""}`}
+            />
+          ))}
           <div className="home-hero-overlay" />
+        </div>
+        <div className="hero-slide-dots">
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              className={`hero-dot${i === activeSlide ? " active" : ""}`}
+              onClick={() => setActiveSlide(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
         <div className="home-hero-content container">
           <div className="home-hero-eyebrow">Tanzania's Tailor-Made Safari Specialists</div>
-          <h1>Where <em>wild</em> stories begin.</h1>
-          <p>From the thundering Serengeti to the summit of Kilimanjaro - we craft journeys to Tanzania's most extraordinary places with guides who live them.</p>
+          <h1>Visit tanzania <em>and</em> Explore Nature's Wonders!</h1>
+          <p>Ebby Adventure & Safaris brings you closer to the heart of Tanzania — where breathtaking landscapes, diverse wildlife, and rich cultures create unforgettable journeys. Whether it’s thrilling safaris, mountain treks, or island escapes, we craft experiences designed for adventure, comfort, and discovery.</p>
           <div className="home-hero-btns">
             <Link to="/contact" className="btn-gold">Start planning</Link>
             <Link to="/itineraries" className="btn-outline-white">See our itineraries</Link>
@@ -55,6 +109,57 @@ export default function HomePage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section home-video-section">
+        <div className="container">
+          <div className="section-head-row">
+            <div>
+              <div className="eyebrow">Experience the Magic</div>
+              <h2>Watch the <em>Tanzanian</em> Journey.</h2>
+            </div>
+            <p className="section-desc">
+              Immerse yourself in the incredible sights and sounds of a Tanzanian safari. A truly raw, breathtaking experience.
+            </p>
+          </div>
+          
+          <div className="home-video-wrapper">
+            <iframe
+              ref={videoRef}
+              src="https://www.youtube.com/embed/m_1wOnsb_uA?autoplay=1&mute=1&loop=1&playlist=m_1wOnsb_uA&controls=0&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&disablekb=1&playsinline=1&vq=hd1080&enablejsapi=1"
+              title="Ebby Adventures Safari Video Showcase"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+            <div className="home-video-overlay-gradient"></div>
+            
+            <button 
+              className="video-sound-toggle"
+              onClick={toggleMute}
+              aria-label={videoMuted ? "Unmute video" : "Mute video"}
+            >
+              {videoMuted ? (
+                <>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                  </svg>
+                  <span>Enable Sound</span>
+                </>
+              ) : (
+                <>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg>
+                  <span>Mute Sound</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
       </section>
@@ -103,7 +208,7 @@ export default function HomePage() {
             <Link to="/about" className="btn-outline-white">Our story</Link>
           </div>
           <div className="home-why-img">
-            <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80" alt="Safari guide" />
+            <img src={safariGuideImg} alt="Safari guide" />
           </div>
         </div>
       </section>
@@ -144,7 +249,7 @@ export default function HomePage() {
 
       <section className="home-kili">
         <div className="home-kili-bg">
-          <img src="https://images.unsplash.com/photo-1621414050946-1b8a6c7f3c52?w=1600&q=80" alt="Kilimanjaro" />
+          <img src={kiliImg} alt="Kilimanjaro" />
           <div className="home-kili-overlay" />
         </div>
         <div className="container home-kili-content">
@@ -156,7 +261,7 @@ export default function HomePage() {
               <span key={r} className="kili-route-tag">{r}</span>
             ))}
           </div>
-          <Link to="/kilimanjaro" className="btn-outline-white">Explore all routes</Link>
+          <Link to="/trekking/kilimanjaro" className="btn-outline-white">Explore all routes</Link>
         </div>
       </section>
 

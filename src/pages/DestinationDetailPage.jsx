@@ -22,11 +22,6 @@ export default function DestinationDetailPage() {
           <div className="detail-hero-overlay" />
         </div>
         <div className="container detail-hero-content">
-          <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">/</span>
-            <Link to="/destinations">Destinations</Link> <span className="bc-sep">/</span>
-            <span>{dest.short}</span>
-          </div>
           <div className="eyebrow eyebrow-light">{dest.region}</div>
           <h1>{dest.name}</h1>
           <p className="detail-hero-tag">{dest.tagline}</p>
@@ -39,6 +34,23 @@ export default function DestinationDetailPage() {
           {/* Main content */}
           <div className="detail-main">
             <p className="detail-lead">{dest.desc}</p>
+
+            <div className="detail-block">
+              <h2>Why visit</h2>
+              <p>{dest.whyVisit}</p>
+            </div>
+
+            <div className="detail-block">
+              <h2>Ideal for</h2>
+              <div className="detail-tags">
+                {dest.idealFor.map(item => <span key={item} className="tag">{item}</span>)}
+              </div>
+            </div>
+
+            <div className="detail-block">
+              <h2>Access</h2>
+              <p>{dest.access}</p>
+            </div>
 
             <div className="detail-block">
               <h2>Highlights</h2>

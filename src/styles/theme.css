@@ -1,4 +1,4 @@
-﻿/* Eagle Vision-inspired glow skin - layout preserved, visual language refined. */
+/* Eagle Vision-inspired glow skin - layout preserved, visual language refined. */
 :root {
   --gold: #c8842d;
   --gold-lt: #f4bd58;
@@ -54,10 +54,14 @@ body::before {
 }
 
 #root,
-.navbar,
 .footer {
   position: relative;
   z-index: 1;
+}
+
+.navbar {
+  position: sticky;
+  z-index: 9999;
 }
 
 h1,

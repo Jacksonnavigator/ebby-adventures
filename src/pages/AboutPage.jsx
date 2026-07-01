@@ -1,20 +1,21 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TESTIMONIALS, COMPANY } from "../data/siteData";
 import "./AboutPage.css";
+
+// Local image imports
+import aboutHeroImg from "../assets/downloaded_image_11.jpg";
+import aboutGuideImg from "../assets/downloaded_image_14.jpg";
+import serengetiImg from "../assets/gallery_leopard.jpg";
 
 export default function AboutPage() {
   return (
     <div>
       <section className="listing-hero">
         <div className="listing-hero-bg">
-          <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&q=85" alt="Ebby Adventures" />
+          <img src={aboutHeroImg} alt="Ebby Adventures" />
           <div className="listing-hero-overlay" />
         </div>
         <div className="container listing-hero-content">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link> <span className="bc-sep">/</span>
-            <span>About Us</span>
-          </div>
           <div className="eyebrow eyebrow-light">Who we are</div>
           <h1>Guiding you through Africa's <em>untamed beauty</em>.</h1>
           <p>Born in Tanzania, passionate about wildlife, committed to exceptional experiences.</p>
@@ -28,12 +29,12 @@ export default function AboutPage() {
             <div className="eyebrow">Our story</div>
             <h2>We don't just guide tours. We share our <em>home</em>.</h2>
             <p>At Ebby Adventures & Safaris, we are fuelled by a genuine passion for wildlife, culture, and the extraordinary landscapes of Tanzania. Founded by Eben, a lifelong Tanzanian with deep roots in the safari world, our company was built on one simple belief: the best safari guide is someone who grew up in the bush.</p>
-            <p>We've taken thousands of guests through Tanzania's most remarkable places - from the endless Serengeti plains to the summit of Kilimanjaro, from Ngorongoro's world-famous crater to the turquoise waters of Zanzibar. Every single trip is personal. Every itinerary is crafted around you.</p>
-            <p>We are small by design. We believe in quality over volume, deep knowledge over scripted commentary, and genuine relationships over transactional bookings. When you travel with Ebby, you get a guide who truly cares - about the animals, the land, the people, and about making your trip the adventure of a lifetime.</p>
+            <p>Ebby Adventures & Safaris is an independently owned tour operator based in Arusha, Tanzania. We specialize in creating high-quality, tailor-made safari and trekking experiences that go beyond the ordinary. Our deep local knowledge and commitment to excellence ensure that every guest experiences the true heart of Africa.</p>
+            <p>From the iconic Serengeti plains to the majestic peaks of Kilimanjaro, we offer a range of adventures including wildlife safaris, mountain trekking, cultural tours, and beach escapes. Our team is dedicated to providing personalized service, expert guidance, and unforgettable memories for every traveler.</p>
           </div>
           <div className="about-imgs-stack">
-            <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=700&q=80" alt="Safari guide" className="about-img-main" />
-            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&q=80" alt="Serengeti" className="about-img-secondary" />
+            <img src={aboutGuideImg} alt="Safari guide" className="about-img-main" />
+            <img src={serengetiImg} alt="Serengeti" className="about-img-secondary" />
           </div>
         </div>
       </section>

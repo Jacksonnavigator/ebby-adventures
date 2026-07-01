@@ -11,10 +11,6 @@ export default function ItinerariesPage() {
           <div className="listing-hero-overlay" />
         </div>
         <div className="container listing-hero-content">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link> <span className="bc-sep">/</span>
-            <span>Itineraries</span>
-          </div>
           <div className="eyebrow eyebrow-light">Our journeys</div>
           <h1>Tanzania <em>Itineraries</em>.</h1>
           <p>Carefully crafted journeys by specialists who live and breathe Tanzania. Ready to be tailored to your dates and group.</p>

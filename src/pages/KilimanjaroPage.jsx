@@ -16,16 +16,12 @@ export default function KilimanjaroPage() {
           <div className="detail-hero-overlay" />
         </div>
         <div className="container detail-hero-content">
-          <div className="breadcrumb breadcrumb-light">
-            <Link to="/">Home</Link> <span className="bc-sep">/</span>
-            <span>Kilimanjaro</span>
-          </div>
           <div className="eyebrow eyebrow-light">Mount Kilimanjaro</div>
           <h1>Climb the <em>Roof of Africa</em>.</h1>
           <p>At 5,895m, Kilimanjaro is Africa's highest peak and one of the world's most remarkable trekking experiences. Our expert guides have led hundreds of climbers safely to Uhuru Peak.</p>
           <div className="detail-hero-btns">
             <Link to="/contact" className="btn-gold">Plan my climb</Link>
-            <a href="#routes" className="btn-outline-white">See all routes down</a>
+            <a href="#routes" className="btn-outline-white">See all routes ↓</a>
           </div>
         </div>
       </section>
@@ -101,7 +97,10 @@ export default function KilimanjaroPage() {
                     <span className="route-meta-item route-success"><strong>{r.success}</strong><em>Success Rate</em></span>
                   </div>
                   <p>{r.desc}</p>
-                  <Link to="/contact" className="route-cta">Book this route</Link>
+                  <div className="route-card-ctas">
+                    <Link to={r.link} className="route-cta">View full itinerary</Link>
+                    <Link to="/contact" className="route-cta route-cta-ghost">Book this route</Link>
+                  </div>
                 </div>
               </div>
             ))}

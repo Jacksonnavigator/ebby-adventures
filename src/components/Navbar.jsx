@@ -1,15 +1,18 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { DESTINATIONS, EXPERIENCES, ITINERARIES } from "../data/siteData";
+import { DESTINATIONS, EXPERIENCES, ITINERARIES, TREKKING } from "../data/siteData";
 import "./Navbar.css";
+import logoSrc from "../assets/favicon.jpg";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdown, setDropdown] = useState(null);
+  const dropdownTimer = useRef(null);
   const [activeDestination, setActiveDestination] = useState(DESTINATIONS[0]);
   const [activeExperience, setActiveExperience] = useState(EXPERIENCES[0]);
   const [activeItinerary, setActiveItinerary] = useState(ITINERARIES[0]);
+  const [activeTrekking, setActiveTrekking] = useState(TREKKING[0]);
   const location = useLocation();
 
   const isHome = location.pathname === "/";
@@ -26,6 +29,15 @@ export default function Navbar() {
     setDropdown(null);
   }, [location.pathname]);
 
+  const openDropdown = (name) => {
+    if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
+    setDropdown(name);
+  };
+
+  const closeDropdown = () => {
+    dropdownTimer.current = setTimeout(() => setDropdown(null), 200);
+  };
+
   const navClass = `navbar${scrolled || !isHome ? " scrolled" : ""}${menuOpen ? " open" : ""}`;
 
   return (
@@ -33,7 +45,7 @@ export default function Navbar() {
       <nav className={navClass}>
         <div className="nav-inner container">
           <Link to="/" className="nav-logo">
-            <div className="logo-mark">E</div>
+            <img src={logoSrc} alt="Ebby Adventures" className="nav-logo-img" />
             <div className="logo-text">
               <span className="logo-main">Ebby Adventures</span>
               <span className="logo-sub">& Safaris / Arusha, Tanzania</span>
@@ -45,12 +57,12 @@ export default function Navbar() {
 
             <div
               className={`nav-item${dropdown === "dest" ? " active" : ""}`}
-              onMouseEnter={() => setDropdown("dest")}
-              onMouseLeave={() => setDropdown(null)}
+              onMouseEnter={() => openDropdown("dest")}
+              onMouseLeave={closeDropdown}
             >
               <NavLink to="/destinations" className="nav-link">Destinations <span className="chevron">v</span></NavLink>
               {dropdown === "dest" && (
-                <div className="dropdown mega">
+                <div className="dropdown mega" onMouseEnter={() => openDropdown("dest")} onMouseLeave={closeDropdown}>
                   <div className="mega-col">
                     <div className="mega-label">Parks & Islands</div>
                     {DESTINATIONS.map(destination => (
@@ -77,12 +89,12 @@ export default function Navbar() {
 
             <div
               className={`nav-item${dropdown === "exp" ? " active" : ""}`}
-              onMouseEnter={() => setDropdown("exp")}
-              onMouseLeave={() => setDropdown(null)}
+              onMouseEnter={() => openDropdown("exp")}
+              onMouseLeave={closeDropdown}
             >
-              <NavLink to="/experiences" className="nav-link">Experiences <span className="chevron">v</span></NavLink>
+              <NavLink to="/experiences" className="nav-link">Cultural Experiences <span className="chevron">v</span></NavLink>
               {dropdown === "exp" && (
-                <div className="dropdown mega">
+                <div className="dropdown mega" onMouseEnter={() => openDropdown("exp")} onMouseLeave={closeDropdown}>
                   <div className="mega-col">
                     <div className="mega-label">By Experience Type</div>
                     {EXPERIENCES.map(experience => (
@@ -109,12 +121,12 @@ export default function Navbar() {
 
             <div
               className={`nav-item${dropdown === "itin" ? " active" : ""}`}
-              onMouseEnter={() => setDropdown("itin")}
-              onMouseLeave={() => setDropdown(null)}
+              onMouseEnter={() => openDropdown("itin")}
+              onMouseLeave={closeDropdown}
             >
-              <NavLink to="/itineraries" className="nav-link">Itineraries <span className="chevron">v</span></NavLink>
+              <NavLink to="/itineraries" className="nav-link">Safaris <span className="chevron">v</span></NavLink>
               {dropdown === "itin" && (
-                <div className="dropdown mega">
+                <div className="dropdown mega" onMouseEnter={() => openDropdown("itin")} onMouseLeave={closeDropdown}>
                   <div className="mega-col">
                     <div className="mega-label">Featured Journeys</div>
                     {ITINERARIES.map(itinerary => (
@@ -127,7 +139,7 @@ export default function Navbar() {
                         {itinerary.title}
                       </Link>
                     ))}
-                    <Link to="/itineraries" className="mega-all">All itineraries </Link>
+                    <Link to="/itineraries" className="mega-all">All Safaris </Link>
                   </div>
                   <MegaPromo
                     image={activeItinerary.thumb}
@@ -139,8 +151,39 @@ export default function Navbar() {
               )}
             </div>
 
-            <NavLink to="/kilimanjaro" className="nav-link">Kilimanjaro</NavLink>
-            <NavLink to="/about" className="nav-link">About</NavLink>
+            <div
+              className={`nav-item${dropdown === "trek" ? " active" : ""}`}
+              onMouseEnter={() => openDropdown("trek")}
+              onMouseLeave={closeDropdown}
+            >
+              <NavLink to="/trekking" className="nav-link">Trekking <span className="chevron">v</span></NavLink>
+              {dropdown === "trek" && (
+                <div className="dropdown mega" onMouseEnter={() => openDropdown("trek")} onMouseLeave={closeDropdown}>
+                  <div className="mega-col">
+                    <div className="mega-label">Mountains & Treks</div>
+                    {TREKKING.map(trek => (
+                      <Link
+                        key={trek.slug}
+                        to={`/trekking/${trek.slug}`}
+                        className={`mega-item${activeTrekking.slug === trek.slug ? " active" : ""}`}
+                        onMouseEnter={() => setActiveTrekking(trek)}
+                      >
+                        {trek.name}
+                      </Link>
+                    ))}
+                    <Link to="/trekking" className="mega-all">All treks </Link>
+                  </div>
+                  <MegaPromo
+                    image={activeTrekking.thumb}
+                    title={activeTrekking.name}
+                    description={activeTrekking.tagline}
+                    to={`/trekking/${activeTrekking.slug}`}
+                  />
+                </div>
+              )}
+            </div>
+            <NavLink to="/about" className="nav-link">About Us</NavLink>
+            <NavLink to="/gallery" className="nav-link">Gallery</NavLink>
             <NavLink to="/contact" className="nav-link">Contact</NavLink>
           </div>
 
@@ -177,8 +220,14 @@ export default function Navbar() {
               ))}
             </div>
             <div className="mobile-section">
-              <Link to="/kilimanjaro" className="mobile-link">Kilimanjaro</Link>
+              <div className="mobile-label">Trekking</div>
+              {TREKKING.map(trek => (
+                <Link key={trek.slug} to={`/trekking/${trek.slug}`} className="mobile-link">{trek.name}</Link>
+              ))}
+            </div>
+            <div className="mobile-section">
               <Link to="/about" className="mobile-link">About Us</Link>
+              <Link to="/gallery" className="mobile-link">Gallery</Link>
               <Link to="/contact" className="mobile-link">Contact</Link>
             </div>
             <div className="mobile-cta">

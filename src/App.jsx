@@ -1,4 +1,4 @@
-﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
@@ -11,8 +11,12 @@ import ExperienceDetailPage from "./pages/ExperienceDetailPage";
 import ItinerariesPage      from "./pages/ItinerariesPage";
 import ItineraryDetailPage  from "./pages/ItineraryDetailPage";
 import KilimanjaroPage      from "./pages/KilimanjaroPage";
+import KiliRouteDetailPage  from "./pages/KiliRouteDetailPage";
+import TrekkingPage         from "./pages/TrekkingPage";
+import TrekkingDetailPage   from "./pages/TrekkingDetailPage";
 import AboutPage            from "./pages/AboutPage";
 import ContactPage          from "./pages/ContactPage";
+import GalleryPage          from "./pages/GalleryPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,8 +38,13 @@ function Layout() {
           <Route path="/experiences/:slug"           element={<ExperienceDetailPage />} />
           <Route path="/itineraries"                 element={<ItinerariesPage />} />
           <Route path="/itineraries/:slug"           element={<ItineraryDetailPage />} />
-          <Route path="/kilimanjaro"                 element={<KilimanjaroPage />} />
+          <Route path="/kilimanjaro"                 element={<Navigate to="/trekking/kilimanjaro" replace />} />
+          <Route path="/trekking"                    element={<TrekkingPage />} />
+          <Route path="/trekking/kilimanjaro"        element={<KilimanjaroPage />} />
+          <Route path="/trekking/kilimanjaro/:routeSlug" element={<KiliRouteDetailPage />} />
+          <Route path="/trekking/:slug"             element={<TrekkingDetailPage />} />
           <Route path="/about"                       element={<AboutPage />} />
+          <Route path="/gallery"                     element={<GalleryPage />} />
           <Route path="/contact"                     element={<ContactPage />} />
           <Route path="*"                            element={<NotFound />} />
         </Routes>

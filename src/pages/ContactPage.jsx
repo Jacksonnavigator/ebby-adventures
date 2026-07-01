@@ -12,10 +12,6 @@ export default function ContactPage() {
           <div className="listing-hero-overlay" />
         </div>
         <div className="container listing-hero-content">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link> <span className="bc-sep">/</span>
-            <span>Contact</span>
-          </div>
           <div className="eyebrow eyebrow-light">Start planning</div>
           <h1>Let's plan your <em>Tanzania adventure</em>.</h1>
           <p>Get in touch and a specialist will respond personally - usually within a few hours.</p>
