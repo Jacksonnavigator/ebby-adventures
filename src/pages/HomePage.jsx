@@ -5,7 +5,7 @@ import PlanForm from "../components/PlanForm";
 import "./HomePage.css";
 import heroImg from "../assets/hero.jpg";
 import kiliImg from "../assets/Kilimanjaro1.jpg";
-import tangaImg from "../assets/Tanga.jpg"
+import tangaImg from "../assets/tanga.jpg"
 import AllImg from "../assets/All.jpg"
 import TwigaImg from "../assets/Twiga.jpg"
 import safariGuideImg from "../assets/downloaded_image_14.jpg";
